@@ -3,10 +3,6 @@ include 'header.php';
 include 'livechat.php';
 include 'helper.php';
 
-$title = "Sip and Paint at Art & Bonding";
-$eventId = 'abc';
-$eventTime = 'Time  : 10 - 13 Dec 2022 (8am - 7pm)';
-
 $e1 = "event_id";
 $e2 = "event_name";
 $e3 = "event_date";
