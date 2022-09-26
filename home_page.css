@@ -336,3 +336,18 @@ p.time{
         font-size: 20px;
     }
 }
+
+
+.wrapper::-webkit-scrollbar-track{
+    box-shadow: none;
+    display: none;
+}
+
+.wrapper::-webkit-scrollbar{
+    height: 4px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
+    border-radius: 20px;
+}
