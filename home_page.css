@@ -205,7 +205,7 @@ body{
 }
 
 .wrapper .carousel{
-    width: 3500px;
+    /*width: 3500px;*/
     height: 300px;
     margin: auto;
     padding: 0 30px;
@@ -336,7 +336,6 @@ p.time{
         font-size: 20px;
     }
 }
-
 
 .wrapper::-webkit-scrollbar-track{
     box-shadow: none;
