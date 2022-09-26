@@ -12,3 +12,6 @@ Upload file and Display (BLOB)
 
 PHP work with CSS
 - https://stackoverflow.com/questions/13201451/how-to-use-css-style-in-php
+
+Use img tag set as div background
+- https://stackoverflow.com/questions/31267425/use-the-html-img-tag-as-a-background-image-instead-of-the-css-background-image
