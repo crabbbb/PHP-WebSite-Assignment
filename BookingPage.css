@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'EBGaramond';
+    src: url(../Home_page/EBGaramond-Regular.ttf);
+}
+
+body{
+    background-color: rgb(212, 212, 212);
+    font-family: 'EBGaramond',sans-serif;
+}
+
+.content-box{
+    text-align: center;
+    background-image: url(background.jpg);
+    height: 500px;
+    background-size: 100% 500px;
+    background-size: 100% 720px;
+}
+
+.content-box>h1{
+    position: relative;
+    top: 150px;
+    color: white;
+    letter-spacing: 3px;
+    animation: 2s space infinite ease-in-out;
+}
+
+.middle{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.title-show{
+    width: 100%;
+    outline: pointer;
+    height: 200%;
+}
+
+.title-show > h1{
+    display: inline-block;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.title{
+    width: 80%;
+    text-align: start;
+}
+
+.button{
+    width: 20%;
+    text-align: end;
+}
+
+.button, .title{
+    float: left;
+}
+
+.table-box{
+    position: relative;
+    top: 300px;
+    background-color: #fff;
+    border-radius: 15px;
+    width: 80%;
+    height: auto;
+    padding: 25px;
+    box-shadow: 0 15px 25px rgba(0, 0, 50, 0.2);
+}
+
+
+.on-coming{
+    clear: both;
+    position: relative;
+    height: 100px;
+    overflow: hidden;
+    transition: all 1s;
+    height: 0;
+}
+
+/*----------------table-------------------*/
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    padding: 6px;
+}
+
+td, th{
+    border-bottom: 2px solid rgba(187, 184, 184, 0.812);
+    line-height: 40px;
+}
+
+tbody tr:nth-child(odd){
+    background-color:#49497e2f;
+}
+
+div.empty{
+    height: 270px;
+}
+
+@keyframes space{
+    0%{
+        letter-spacing: 3px;
+    }
+    50%{
+        letter-spacing: 6px;
+    }
+    100%{
+        letter-spacing: 3px;
+    }
+}
+
+
+.table-boxs{
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.table-boxs::-webkit-scrollbar-track{
+    box-shadow: none;
+    display: none;
+}
+
+.table-boxs::-webkit-scrollbar{
+    width: 3px;
+}
+
+.table-boxs::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.678);
+    border-radius: 10px;
+}
+
+
+
+
