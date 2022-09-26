@@ -9,3 +9,6 @@ Website for convert the image
 Upload file and Display (BLOB)
 - https://www.youtube.com/watch?v=XfobCv4YBdk&ab_channel=CodeTube
 - https://www.codexworld.com/store-retrieve-image-from-database-mysql-php/
+
+PHP work with CSS
+- https://stackoverflow.com/questions/13201451/how-to-use-css-style-in-php
