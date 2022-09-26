@@ -17,6 +17,23 @@ $date = date('Y-m-d H:i:s');
 //$sql = "SELECT $e1, $e2, $e3, $e4 FROM events WHERE event_date > $date ORDER BY $e1";
 $sql = "SELECT $e1, $e2, $e3, $e4 FROM events ORDER BY $e1";
 $result = $conn->query($sql);
+
+$ttlsize = 0;
+
+while ($row = $result->fetch_assoc()) {
+    if ($row[$e3] > $date) {
+        $ttlsize++;
+    }
+}
+echo $ttlsize;
+
+//maximum will be 5 only
+if ($ttlsize > 5) {
+    $ttlsize = 5;
+}
+
+//prepare for the event list
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +41,7 @@ $result = $conn->query($sql);
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" href="homepage.css">
+        <link rel="stylesheet" href="home_page.css">
     </head>
     <body>
         <!--slide show-->
@@ -61,25 +78,33 @@ $result = $conn->query($sql);
         <div id="eventList">
             <h1>OUR FAMOUS EVENT</h1>
             <div class="wrapper">
-                <div class="carousel">
+                <?php
+                $availableSize = $ttlsize;
+                $ttlsize = $ttlsize > 0 ? $ttlsize * 750 : 750;
+                ?>
+                <div class="carousel" style="width: <?= $ttlsize . 'px'; ?>">
                     <?php
-                    $size = 0;
-                    while (($row = $result->fetch_assoc()) && $size < 5) {
-                        //print out the event_name , and date time 
-                        //event id set as the value
-                        //$row[columName]
-                        if ($row[$e3] > $date) {
-                            echo "<a href='detail.php?id=$row[$e1]'>
+                    if ($availableSize == 0) {
+                        echo '<div class="card" style="background-image: linear-gradient(rgba(31, 31, 31, 0.5), rgba(31, 31, 31, 0.5)),url(comingsoon.jpg); background-size: 650px 250px;"><h1 class="title">~ MORE EVENT COMING SOON ~</h1></div>';
+                    } else {
+                        $size = 0;
+                        while (($row = $result->fetch_assoc()) && $size < 5) {
+                            //print out the event_name , and date time 
+                            //event id set as the value
+                            //$row[columName]
+                            if ($row[$e3] > $date) {
+                                echo "<a href='detail.php?id=$row[$e1]'>
                         <div class='card'>
                         "
-                            ?>
-                            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row[$e4]); ?>" alt="event_image"> 
-                            <?php
-                            echo "<h1 class='title'>$row[$e2]</h1>
+                                ?>
+                                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row[$e4]); ?>" alt="event_image"> 
+                                <?php
+                                echo "<h1 class='title'>$row[$e2]</h1>
                             <p class='time'>Time  : $row[$e3]</p>
                         </div>
                     </a>";
-                            $size++;
+                                $size++;
+                            }
                         }
                     }
                     ?>
