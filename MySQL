@@ -146,6 +146,8 @@ CREATE TABLE `evenlist` (
   FOREIGN KEY (orders_id) REFERENCES orders(orders_id)
 );
 
+ALTER TABLE `evenlist` ADD `eventlist_quantity` INT AFTER `orders_id`;
+
 ALTER TABLE `evenlist`
   ADD PRIMARY KEY (`event_id`,`orders_id`);
 
@@ -155,6 +157,8 @@ CREATE TABLE `orderlist` (
   FOREIGN KEY (orders_id) REFERENCES orders(orders_id),
   FOREIGN KEY (ticket_id) REFERENCES ticket(ticket_id)
 ) ;
+
+ALTER TABLE `orderlist` ADD `orderlist_quantity` INT AFTER `ticket_id`;
 
 ALTER TABLE `orderlist`
   ADD PRIMARY KEY (`orders_id`,`ticket_id`);
