@@ -16,7 +16,7 @@ if(isset($_SESSION['new'])){
 
 <!--second file (nextpage.php) -->
 <?php
-session_start();
+session_start();//without this session_start() it is not available for getting the session record
 $id = $_SESSION['id'];
 $_SESSION['new'] = 2000;
 echo $id;
