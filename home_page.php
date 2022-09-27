@@ -21,7 +21,6 @@ while ($row = $result->fetch_assoc()) {
         $ttlsize++;
     }
 }
-echo $ttlsize;
 
 //maximum will be 5 only
 if ($ttlsize > 5) {
