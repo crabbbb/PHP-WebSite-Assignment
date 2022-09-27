@@ -100,6 +100,9 @@ ALTER TABLE rating AUTO_INCREMENT = 1000;
 CREATE TABLE `exhibition` (
   `exhibition_id` int(4) NOT NULL AUTO_INCREMENT,
   `exhibition_name` varchar(30),
+  `exhibition_date` datetime,
+  `exhibition_location` varchar(255),
+  `exhibition_ppl_allow` int,
   `staff_id` int(4),
   FOREIGN KEY (staff_id) REFERENCES staff(staff_id),
   PRIMARY KEY(exhibition_id)
@@ -133,8 +136,6 @@ ALTER TABLE artwork AUTO_INCREMENT = 1000;
 CREATE TABLE `schedule` (
   `artwork_id` int(4),
   `exhibition_id` int(4),
-  `schedule_date` datetime,
-  `schedule_location` varchar(255),
   FOREIGN KEY (artwork_id) REFERENCES artwork(artwork_id),
   FOREIGN KEY (exhibition_id) REFERENCES exhibition(exhibition_id)
 ) ;
