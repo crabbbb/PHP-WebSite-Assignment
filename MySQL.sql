@@ -80,8 +80,11 @@ CREATE TABLE `orders` (
   `orders_id` int(4) NOT NULL,
   `member_id` int(4) NOT NULL,
   `orders_date` datetime,
-  FOREIGN KEY (member_id) REFERENCES member(member_id)
+  FOREIGN KEY (member_id) REFERENCES member(member_id),
+  PRIMARY KEY(orders_id)
 ) ;
+
+ALTER TABLE orders AUTO_INCREMENT = 1000;
 
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`orders_id`),
