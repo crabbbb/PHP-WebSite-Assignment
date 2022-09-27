@@ -75,6 +75,8 @@ CREATE TABLE `events` (
 
 ALTER TABLE events AUTO_INCREMENT = 1000;
 
+ALTER TABLE events ADD `event_ppl_allow` int AFTER `event_date`;
+
 CREATE TABLE `orders` (
   `orders_id` int(4) NOT NULL,
   `member_id` int(4) NOT NULL,
