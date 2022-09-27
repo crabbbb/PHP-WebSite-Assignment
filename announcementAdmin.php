@@ -205,7 +205,7 @@
         </div>
     </div>
 
-    <a href='addAnnoucement.php'><img src="event/plus5.png" alt="alt" style="width:40px; height: 40px; margin-top: 20px; margin-left:100px;"/></a>
+    <a href='addAnnoucement.php'><img src="plus5.png" alt="alt" style="width:40px; height: 40px; margin-top: 20px; margin-left:100px;"/></a>
 
     <table class="styled-table">
         <?php
