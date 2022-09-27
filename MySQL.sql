@@ -49,6 +49,7 @@ ALTER TABLE staff AUTO_INCREMENT = 1000;
 
 CREATE TABLE `announcement` (
   `announcement_id` int(4) NOT NULL AUTO_INCREMENT,
+  `announcement_name` varchar(30),
   `announcement_text` text,
   `announcement_image` longblob,
   `announcement_category` varchar(50),
