@@ -192,10 +192,10 @@ $conn->close();
                         <h1 style="text-align:center;margin-bottom: 30px;margin-top: 20px;">Add Announcement</h1>
 
                         <label>Announcement Topic</label>
-                        <input type="text" class="form-control" placeholder="Enter annoucement topic" name="name" autocomplete="off" required>
+                        <input type="text" class="form-control" placeholder="Enter announcement topic" name="name" autocomplete="off" required>
 
                         <label>Announcement Detail</label>
-                        <input type="text" class="form-control" placeholder="Enter annoucement detail" name="detail" autocomplete="off">
+                        <input type="text" class="form-control" placeholder="Enter announcement detail" name="detail" autocomplete="off">
 
                         <label>Announcement Category</label>
                         <input type="text" class="form-control" placeholder="Enter announcement category" name="category" autocomplete="off" required>
