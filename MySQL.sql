@@ -15,6 +15,9 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+set global net_buffer_length=1000000; 
+set global max_allowed_packet=1000000000;
+
 CREATE TABLE `member` (
   `member_id` int(4) NOT NULL AUTO_INCREMENT,
   `member_profile` longblob,
@@ -146,8 +149,6 @@ CREATE TABLE `evenlist` (
   FOREIGN KEY (orders_id) REFERENCES orders(orders_id)
 );
 
-ALTER TABLE `evenlist` ADD `eventlist_quantity` INT AFTER `orders_id`;
-
 ALTER TABLE `evenlist`
   ADD PRIMARY KEY (`event_id`,`orders_id`);
 
@@ -158,8 +159,6 @@ CREATE TABLE `orderlist` (
   FOREIGN KEY (orders_id) REFERENCES orders(orders_id),
   FOREIGN KEY (ticket_id) REFERENCES ticket(ticket_id)
 ) ;
-
-ALTER TABLE `orderlist` ADD `orderlist_quantity` INT AFTER `ticket_id`;
 
 ALTER TABLE `orderlist`
   ADD PRIMARY KEY (`orders_id`,`ticket_id`);
