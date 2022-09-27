@@ -1,5 +1,5 @@
 drop table orderlist;
-drop table evenlist;
+drop table eventlist;
 drop table schedule;
 drop table artwork;
 drop table ticket;
