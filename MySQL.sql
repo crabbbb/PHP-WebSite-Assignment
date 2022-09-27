@@ -86,9 +86,7 @@ CREATE TABLE `orders` (
 
 ALTER TABLE orders AUTO_INCREMENT = 1000;
 
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`orders_id`),
-  ADD KEY `member_id` (`member_id`);
+ALTER TABLE `orders`ADD KEY `member_id` (`member_id`);
 
 CREATE TABLE `rating` (
   `feedback_id` int(4) NOT NULL AUTO_INCREMENT,
