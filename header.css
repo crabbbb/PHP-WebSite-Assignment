@@ -1,0 +1,214 @@
+/*nav icon : https://youtu.be/dIyVTjJAkLw*/
+#navMenu-icon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    /*border: 3px solid #fff;*/
+}
+
+.menu_burger{
+    width: 30px;
+    height: 3px;
+    background: rgb(0, 0, 0);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+    transition: all .5s ease-in-out;
+}
+
+.menu_burger::before, .menu_burger::after{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background: rgb(0, 0, 0);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+    transition: all .5s ease-in-out;
+}
+
+.menu_burger::before{
+    transform: translateY(-10px);
+}
+
+.menu_burger::after{
+    transform: translateY(10px);
+}
+
+/*add animation*/
+#navMenu-icon.open .menu_burger{
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+
+#navMenu-icon.open .menu_burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+#navMenu-icon.open .menu_burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+/*-------------menu bar
+ https://youtu.be/dIFNHeHTja0 ------------------*/
+ *{
+    margin: 0;
+    padding: 0;
+}
+
+::selection{
+    background-color: #788fa4;
+    color: #fff;
+}
+
+@font-face {
+    font-family: 'Dancing';
+    src: url(DancingScript-Regular.ttf);
+}
+
+header{
+    z-index: 1001;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    transition-delay: 2s;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-content{
+    float: left;
+}
+
+h1.menu-content{
+    width: 50%;
+    text-align: center;
+    letter-spacing: 3px;
+    font-style: italic;
+    font-family: 'Dancing', sans-serif;
+    margin: auto 10px auto 20px;
+}
+
+#menu-list{
+    z-index: 1000;/*make div on top of everything*/
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #fff;
+    transition: 2s ease-in-out;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+#menu-list ul{
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+    /*remove the style of li*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu-list ul li a{
+    margin-bottom: 6px;
+}
+
+#menu-list.active{
+    height: 1000%;
+}
+
+#menu-list.active ul{
+    opacity: 1;
+}
+
+/*complete design*/
+#menu-list ul li{
+    margin: 20px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 15px;
+}
+
+#menu-list ul li:hover{
+    background-color: rgba(153, 151, 151, 0.568);
+    transition: 1s ease-in-out;
+    font-size: 22px;
+    font-weight: bolder;
+    text-decoration: underline;
+    
+}
+
+#menu-list ul li.now{
+    background-color: rgba(153, 151, 151, 0.568);
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/*crop image*/
+#user-profile{
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+#user-profile img{
+    border-radius: 50%;
+}
+
+#user-profile p{
+    font-size: 18px;
+    padding-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#user-profile p a{
+    width: 50%; 
+    border-radius: 15px;
+}
+
+#user-profile p a:hover{
+    color: rgba(153, 151, 151, 0.568);
+    text-shadow: 3px;
+    font-weight: bolder;
+}
+
+/*make transparent have color when scrolling*/
+header.trans{
+    transition-delay: 0ms;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px grey;
+}
+
+header.show, header:hover{
+    transition-delay: 0ms;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px grey;
+}
+
+
+
+
+

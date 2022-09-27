@@ -1,0 +1,355 @@
+@charset "utf-8";
+/*slideshow : https://youtu.be/vkfHm2PgmFw*/
+@font-face {
+    font-family: 'EBGaramond';
+    src: url(EBGaramond-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Bangers';
+    src: url(Bangers-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*control the box size will no be affect by padding*/
+    font-family: EBGaramond, sans-serif;
+}
+
+body{
+    background-color: rgb(212, 212, 212);
+}
+
+#slideshow-box{
+    position: relative;
+    /*top: 100px;*/
+    overflow: hidden;
+    width: 100%;
+    height: 700px;
+}
+
+#contain{
+    position: relative;
+    left: 0;   
+    width: 500%;/*5 pic = 500% each 100%*/
+    animation: 50s slideshow infinite;
+}
+
+.slideshow-pic-box{
+    position: relative;
+    width: 20%;/*500% convert to 100% & 100% divide 5 = 20%*/
+    float: left;/*make become one paragraph*/
+    background-image: linear-gradient(rgba(25, 24, 24, 0.829),
+    rgba(25, 24, 24, 0.829));
+}
+
+.slideshow-pic-box img{
+    width: 100%;
+    height: 700px;
+    opacity: 0.7;
+}
+
+/*TITLE WORD*/
+#title, #btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    z-index: 2;
+}
+/*control the title position*/
+#title{
+    position: absolute;
+    top: 200px;
+    border-top:3px solid black;
+    border-bottom: 3px solid black;
+    transition: 3s ease-in;
+    animation: 2s dropdown;
+}
+
+#title h1{/*modify the word look*/
+    letter-spacing: 3px;
+    font-size: 3vw;
+    text-shadow: 3px 3px 2px #474747;
+}
+
+/*BUTTON https://youtu.be/RlkiUib1o_I*/
+#btn{
+    position: absolute;
+    top: 300px;
+    animation: 3s rightIn;
+}
+
+#btn button{
+    position: relative;
+    background-color: rgb(164, 164, 164);
+
+    border: none;
+    width: 200px;
+    height: 60px;
+    transition: 2s;
+    box-shadow: 3px 3px 4px rgb(96, 94, 94);
+}
+
+#btn button p{
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+#btn button::after, #btn button::before{
+    content:'';
+    position: absolute;
+    width: 0;
+    height: 0;
+    transition: all 0.1s, opacity 0.1s 0.4s;
+    opacity: 0;
+}
+
+#btn button::after{
+    bottom: 0;
+    right: 0;
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+}
+
+#btn button::before{
+    top: 0;
+    left: 0;
+    border-left: 3px solid black;
+    border-top: 3px solid black;
+}
+
+#btn button:hover{
+    transition: 1s;
+    box-shadow: 20px 20px 10px grey inset;
+}
+
+#btn button:hover::before, #btn button:hover::after{
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    transition: 0.4s, opacity 0.1s;
+    opacity: 1;
+}
+
+/*title animation*/
+@keyframes dropdown{
+    from{
+        top: -100px;
+    }
+    to{
+        top: 200px;
+    }
+}
+
+/*button animation*/
+@keyframes rightIn{
+    from{
+        right: -100%;
+    }
+    to{
+        right: 0%;
+    }
+}
+
+/*make animation*/
+@keyframes slideshow{
+    0%{
+        /*cannot use left = 100% because it mean the left width between window n image is 100%*/
+        left: 0;/*first*/
+    }
+    10%{
+        left: 0;/*first*/
+    }
+    20%{
+        left: -100%;/*second*/
+    }
+    30%{
+        left: -200%;/*third*/
+    }
+    40%{
+        left: -300%;/*fourth*/
+    }
+    50%{
+        left: -400%;/*fifth*/
+    }
+    60%{
+        left: -300%;
+    }
+    70%{
+        left: -200%;
+    }
+    80%{
+        left: -100%;
+    }
+    90%{
+        left: 0;
+    }
+    100%{
+        left: 0;
+    }
+}
+
+/*card1 event*/
+#eventList > h1{
+    text-align: center;
+    margin: 20px;
+    text-decoration: underline double black;
+}
+
+.wrapper{
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.wrapper .carousel{
+    width: 3500px;
+    height: 300px;
+    margin: auto;
+    padding: 0 30px;
+}
+
+.carousel .card{
+    position: relative;
+    display: inline-block;
+    line-height: 250px;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 10px 0 10px 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    width: 650px;
+}
+
+.carousel .card1{
+    background-image: linear-gradient(rgba(31, 31, 31, 0.75),
+    rgba(31, 31, 31, 0.75)),url(famous1.png);
+    /*background-attachment: fixed;*/
+    background-size: 650px 250px;
+}
+
+.carousel .card2{
+    background-image: linear-gradient(rgba(31, 31, 31, 0.75),
+    rgba(31, 31, 31, 0.75)),url(famous2.jpg);
+    background-size: 650px 250px;
+}
+
+.carousel .card3{
+    background-image: linear-gradient(rgba(31, 31, 31, 0.75),
+    rgba(31, 31, 31, 0.75)),url(famous3.png);
+    background-size: 650px 250px;
+}
+
+.carousel .card4{
+    background-image: linear-gradient(rgba(31, 31, 31, 0.75),
+    rgba(31, 31, 31, 0.75)),url(../Forall/event9.png);
+    background-size: 650px 250px;
+}
+
+.carousel .card5{
+    background-image: linear-gradient(rgba(31, 31, 31, 0.75),
+    rgba(31, 31, 31, 0.75)),url(../Forall/event7.png);
+    background-size: 650px 250px;
+}
+
+h1.title, p.time{
+    display: inline-block;
+}
+
+h1.title{
+    font-size: 25px;
+    font-style: italic;
+}
+
+p.time{
+    position: relative;
+    top: 30px;
+    font-size: 15px;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*about us*/
+.box-about{
+    height: 400px;
+    background-color: rgba(151, 151, 151, 0.712);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.colbox{
+    width: 50%;
+    height: 450px;
+    position: relative;
+    top: -20px;
+    left: 20px;
+    background-image: linear-gradient(rgba(31, 31, 31, 0.75),
+    rgba(31, 31, 31, 0.437)),url(../Forall/aboutus.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: 3px solid black;
+    transform: scale(1,1);
+    border-radius: 20px;
+    box-shadow: 4px 4px 10px rgb(99, 99, 99);
+}
+
+.colbox2, .colbox{
+    float: left;
+}
+
+.colbox2{
+    width: 40%;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    margin: 30px;
+}
+
+.colbox2 button{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 30px;
+    border: none;
+    box-shadow: 3px 3px 6px rgb(104, 104, 104);
+}
+
+.colbox2 button:active {
+    background-color: #969a969f;
+    box-shadow: 0 5px rgba(102, 102, 102, 0.525);
+    transform: translateY(4px);
+}
+
+.colbox2 button:hover{
+    background-color: #f0e7d2b5;
+}
+
+.colbox2 h1{
+    letter-spacing: 3px;
+}
+
+@media(max-width: 620px){
+    .colbox{
+        width: 50%;
+    }
+
+    .colbox2{
+        width: 30%;
+        margin-left: 50px;
+    }
+    
+    .colbox2 h1{
+        font-size: 20px;
+    }
+}
