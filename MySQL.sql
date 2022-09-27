@@ -15,10 +15,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
--- set the blob type size 
-set global net_buffer_length=1000000; 
-set global max_allowed_packet=1000000000;
-
 CREATE TABLE `member` (
   `member_id` int(4) NOT NULL AUTO_INCREMENT,
   `member_profile` longblob,
@@ -68,14 +64,13 @@ CREATE TABLE `events` (
   `event_image` longblob,
   `event_price` double,
   `event_date` datetime,
+  `event_ppl_allow` int,
   `staff_id` int(4),
   FOREIGN KEY (staff_id) REFERENCES staff(staff_id),
   PRIMARY KEY(event_id)
 ) ;
 
 ALTER TABLE events AUTO_INCREMENT = 1000;
-
-ALTER TABLE events ADD `event_ppl_allow` int AFTER `event_date`;
 
 CREATE TABLE `orders` (
   `orders_id` int(4) NOT NULL,
@@ -102,9 +97,6 @@ ALTER TABLE rating AUTO_INCREMENT = 1000;
 CREATE TABLE `exhibition` (
   `exhibition_id` int(4) NOT NULL AUTO_INCREMENT,
   `exhibition_name` varchar(30),
-  `exhibition_date` datetime,
-  `exhibition_location` varchar(255),
-  `exhibition_ppl_allow` int,
   `staff_id` int(4),
   FOREIGN KEY (staff_id) REFERENCES staff(staff_id),
   PRIMARY KEY(exhibition_id)
@@ -114,10 +106,11 @@ ALTER TABLE exhibition AUTO_INCREMENT = 1000;
 
 CREATE TABLE `ticket` (
   `ticket_id` int(4) NOT NULL AUTO_INCREMENT,
-  `exhibition_id` int(4),
   `ticket_price` double,
-  -- buying date time
   `ticket_date` datetime,
+  `ticket_location` varchar(255),
+  `ticket_ppl_allow` int,
+  `exhibition_id` int(4),
   FOREIGN KEY (exhibition_id) REFERENCES exhibition(exhibition_id),
   PRIMARY KEY(ticket_id)
 ) ;
@@ -148,6 +141,7 @@ ALTER TABLE `schedule`
 CREATE TABLE `evenlist` (
   `event_id` int(4) NOT NULL,
   `orders_id` int(4) NOT NULL,
+  `eventlist_quantity` int,
   FOREIGN KEY (event_id) REFERENCES events(event_id),
   FOREIGN KEY (orders_id) REFERENCES orders(orders_id)
 );
@@ -160,6 +154,7 @@ ALTER TABLE `evenlist`
 CREATE TABLE `orderlist` (
   `orders_id` int(4) NOT NULL,
   `ticket_id` int(4) NOT NULL,
+  `orderlist_quantity` int,
   FOREIGN KEY (orders_id) REFERENCES orders(orders_id),
   FOREIGN KEY (ticket_id) REFERENCES ticket(ticket_id)
 ) ;
@@ -168,3 +163,4 @@ ALTER TABLE `orderlist` ADD `orderlist_quantity` INT AFTER `ticket_id`;
 
 ALTER TABLE `orderlist`
   ADD PRIMARY KEY (`orders_id`,`ticket_id`);
+
