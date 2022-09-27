@@ -127,17 +127,16 @@ CREATE TABLE `artwork` (
 ALTER TABLE artwork AUTO_INCREMENT = 1000;
 
 CREATE TABLE `schedule` (
-  `schedule_id` int(4) NOT NULL AUTO_INCREMENT,
   `artwork_id` int(4),
   `exhibition_id` int(4),
   `schedule_date` datetime,
   `schedule_location` varchar(255),
   FOREIGN KEY (artwork_id) REFERENCES artwork(artwork_id),
-  FOREIGN KEY (exhibition_id) REFERENCES exhibition(exhibition_id),
-  PRIMARY KEY(schedule_id)
+  FOREIGN KEY (exhibition_id) REFERENCES exhibition(exhibition_id)
 ) ;
 
-ALTER TABLE schedule AUTO_INCREMENT = 1000;
+ALTER TABLE `schedule`
+  ADD PRIMARY KEY (`artwork_id`,`exhibition_id`);
 
 CREATE TABLE `evenlist` (
   `event_id` int(4) NOT NULL,
