@@ -83,7 +83,7 @@ $conn->close();
     }
 
     .leftside {
-        background: url(event/add.jpg);
+        background: url(add.jpg);
         background-repeat: no-repeat;
         background-size: auto 900px;
         width: 25rem;
