@@ -15,6 +15,10 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+-- set the blob type size 
+set global net_buffer_length=1000000; 
+set global max_allowed_packet=1000000000;
+
 CREATE TABLE `member` (
   `member_id` int(4) NOT NULL AUTO_INCREMENT,
   `member_profile` longblob,
