@@ -146,7 +146,7 @@ CREATE TABLE `schedule` (
 ALTER TABLE `schedule`
   ADD PRIMARY KEY (`artwork_id`,`exhibition_id`);
 
-CREATE TABLE `evenlist` (
+CREATE TABLE `eventlist` (
   `event_id` int(4) NOT NULL,
   `orders_id` int(4) NOT NULL,
   `eventlist_quantity` int,
@@ -154,7 +154,7 @@ CREATE TABLE `evenlist` (
   FOREIGN KEY (orders_id) REFERENCES orders(orders_id)
 );
 
-ALTER TABLE `evenlist`
+ALTER TABLE `eventlist`
   ADD PRIMARY KEY (`event_id`,`orders_id`);
 
 CREATE TABLE `orderlist` (
