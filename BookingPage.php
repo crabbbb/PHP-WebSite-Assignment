@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 include 'header.php';
 include 'livechat.php';
 include 'helper.php';
@@ -29,8 +29,8 @@ $t2 = "ticket_location";
 $t3 = "ticket_price";
 
 //get the user id from session
-//$id = $_SESSION['id'];
-$id = 1000;
+$id = $_SESSION['id'];
+//$id = 1000;
 
 //select for events
 $sql1 = "SELECT * FROM events e, eventlist el, orders o WHERE o.member_id = '$id' AND o.orders_id = el.orders_id AND el.event_id = e.event_id";
