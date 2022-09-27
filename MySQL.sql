@@ -22,7 +22,7 @@ CREATE TABLE `member` (
   `member_id` int(4) NOT NULL AUTO_INCREMENT,
   `member_profile` longblob,
   `member_name` varchar(30),
-  `member_phNo` int(10),
+  `member_phNo` varchar(10),
   `member_email` varchar(30),
   `member_gender` char(1),
   `member_description` varchar(255),
@@ -38,6 +38,8 @@ CREATE TABLE `staff` (
   `staff_email` varchar(30),
   `staff_pass` varchar(20),
   `staff_role` varchar(30),
+  `staff_phNo` varchar(10),
+  `staff_address` varchar(255), 
   `staff_status` varchar(20),
   `staff_date_join` datetime,
   `staff_gender` char(1),
@@ -77,7 +79,7 @@ CREATE TABLE `events` (
 ALTER TABLE events AUTO_INCREMENT = 1000;
 
 CREATE TABLE `orders` (
-  `orders_id` int(4) NOT NULL,
+  `orders_id` int(4) NOT NULL AUTO_INCREMENT,
   `member_id` int(4) NOT NULL,
   `orders_date` datetime,
   FOREIGN KEY (member_id) REFERENCES member(member_id),
@@ -86,7 +88,8 @@ CREATE TABLE `orders` (
 
 ALTER TABLE orders AUTO_INCREMENT = 1000;
 
-ALTER TABLE `orders`ADD KEY `member_id` (`member_id`);
+ALTER TABLE `orders`
+  ADD KEY `member_id` (`member_id`);
 
 CREATE TABLE `rating` (
   `feedback_id` int(4) NOT NULL AUTO_INCREMENT,
