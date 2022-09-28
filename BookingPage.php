@@ -1,8 +1,8 @@
 <?php
 session_start();
+include 'helper.php';
 include 'header.php';
 include 'livechat.php';
-include 'helper.php';
 
 $date = date('Y-m-d H:i:s');
 
