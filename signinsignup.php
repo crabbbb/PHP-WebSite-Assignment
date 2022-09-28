@@ -113,6 +113,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 $stmt->bind_param("ssss", $userName, $userPass, $userEmail, $userPhNo);
                 if ($stmt->execute()){
                     $success = true;
+                    unset($userEmail);
+                    unset($userPhNo);
+                    unset($userName);
                     //header("location: signinsignup.php");
                 }else{
                     echo "Oops! Something went wrong. Please try again later.";
