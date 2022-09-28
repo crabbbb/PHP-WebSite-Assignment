@@ -29,7 +29,7 @@ $t2 = "ticket_location";
 $t3 = "ticket_price";
 
 //get the user id from session
-$id = $_SESSION['id'];
+$id = $_SESSION['memberId'];
 //$id = 1000;
 
 //select for events
