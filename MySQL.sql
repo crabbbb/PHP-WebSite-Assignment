@@ -110,6 +110,8 @@ CREATE TABLE `exhibition` (
   PRIMARY KEY(exhibition_id)
 ) ;
 
+ALTER TABLE `exhibition` ADD `exhibition_image` LONGBLOB NOT NULL AFTER `exhibition_name`;
+
 ALTER TABLE exhibition AUTO_INCREMENT = 1000;
 
 CREATE TABLE `ticket` (
