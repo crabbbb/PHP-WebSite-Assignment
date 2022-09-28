@@ -3,6 +3,7 @@ session_start();
 
 include 'helper.php';
 $nofounded = false;
+$success = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
@@ -111,7 +112,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             if ($stmt = $conn->prepare($insertRecord)){
                 $stmt->bind_param("ssss", $userName, $userPass, $userEmail, $userPhNo);
                 if ($stmt->execute()){
-                    header("location: home_page.php");
+                    $success = true;
+                    //header("location: signinsignup.php");
                 }else{
                     echo "Oops! Something went wrong. Please try again later.";
                 }
@@ -139,6 +141,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="signin-signup">
             <!--self passing-->
             <form action="<?= $_SERVER['PHP_SELF']?>" method="POST" class="sign-in-form">
+            <?php
+            if($success == true){
+                echo "<h4 class='success-register'> &#128276; Register Successfull Please Try To Login</h4>";
+            }
+            ?>
             <h2 class="title">Sign in</h2>
             <div class="input-field <?php echo (!empty($errorLogin['loginEmail'])) ? 'errorlogin' : ''; ?> <?= $nofounded==true?'errorlogin':'' ?>">
                 <input type="text" class="input-box" placeholder="Email" name="loginEmail" <?= !isset($loginEmail)?:"value='$loginEmail'" ?>>
