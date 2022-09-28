@@ -150,6 +150,14 @@ if($result->num_rows > 0){
                 </div>
             </div>
         </a>
+        <a href="#">
+            <div class="box box7">
+                <div class="content">
+                    <h4 class="title">ANNOUNCEMENT</h4><br>
+                    <h4 class="small-title">Management</h4>
+                </div>
+            </div>
+        </a>
     </div>
     <?php
     include 'footer.php';
