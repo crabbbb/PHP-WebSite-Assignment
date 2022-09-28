@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: EBGaramond, sans-serif;
+}
+
+@font-face {
+    font-family: 'EBGaramond';
+    src: url(EBGaramond-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Bangers';
+    src: url(Bangers-Regular.ttf);
+}
+
+body{
+    background-color: rgb(212, 212, 212);
+}
+
+*:link{
+    color: black;
+    text-decoration: none;
+}
+
+.management-box{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow-x: scroll;
+    margin-bottom: 30px;
+}
+
+.box{
+    position: relative;
+    margin: 30px;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px gray;
+    text-align: center;
+    width: 250px;
+    height: 300px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.box:hover{
+    transition: 0.5s ease-in-out all;
+    transform: scale(0.99);
+    background: linear-gradient(rgba(72, 69, 69, 0.377),rgba(62, 61, 61, 0.277));
+}
+
+.title{
+    font-family: 'Bangers';
+    color: #F45F34;
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-weight: 900;
+    text-shadow: 3px 3px 10px #707E8D;
+}
+
+.small-title{
+    color: black;
+    font-size: 20px;
+}
+
+.box1, .box3, .box5{
+    background-color: #FFD1B7;
+}
+
+.box2, .box4, .box6{
+    background-color: #FEE4D4;
+}
+
+.big-box{
+    margin-top: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transform: scale(0.95);
+}
+
+.admin-header{
+    border: 3px solid rgba(64, 62, 62, 0.541);
+    box-shadow: 3px 3px 10px rgb(104, 99, 99);
+    margin: 40px;
+    width: 90%;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.boxbox, .img-box{
+    float: left;
+}
+
+.boxbox{
+    width: 75%;
+    text-align: center;
+}
+
+.img-box{
+    width: 25%;
+    height: 250px;
+    z-index: -1;
+}
+
+.img-box>img{
+    width: 100%;
+    height: 100%;
+}
+
+.admin-profile-name{
+    margin: 30px;
+}
+
+.function-card{
+    width: 50%;
+    float: left;
+    transform: scale(0.9);
+    border-radius: 15px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.function-card > h4{
+    font-size: 20px;
+    border-bottom: 3px solid black;
+    padding: 10px;
+}
+
+.management-box::-webkit-scrollbar-track{
+    box-shadow: none;
+    display: none;
+}
+
+.management-box::-webkit-scrollbar{
+    height: 4px;
+}
+
+.management-box::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
+    border-radius: 20px;
+}
+
+body > h1{
+    text-align: center;
+}
+
+.nofound{
+    color: red;
+}
