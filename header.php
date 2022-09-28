@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -27,9 +23,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <li><a href="BookingPage.php">Booking</a></li>
                     <li><a href="annoucement.php">Admin Announcement</a></li>
                     <div id="user-profile" style="text-align: center;">
-                        <a href="userprofile.php"><img src="logo.jpg" alt="user-profile" width="100px"></a><br>
-                        <p><a href="signinsignup.php">Login</a></p>
-                        <p><a href="signinsignup.php">Register Now</a></p>
+                        <?php
+                        if(isset($_SESSION['memberId'])){
+                            $memberid = $_SESSION['memberId'];
+                            $sql = "SELECT member_profile FROM member WHERE member_id = '$memberid'";
+                            $result = $conn->query($sql);
+                            if($result->num_rows > 0){
+                                $row = $result->fetch_row();
+                                if($row[0] != null){
+                                    echo "<a href='userprofile.php'>"
+                                    ?><img src='data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row[0]); ?>' alt='event_image' width="100px"><?php echo "</a><br>";
+                                }else{
+                                    echo '<a href="userprofile.php"><img src="logo.jpg" alt="user-profile" width="100px"></a><br>';
+                                }
+                            }
+                        }else{
+                            echo '<a href="userprofile.php"><img src="logo.jpg" alt="user-profile" width="100px"></a><br>';
+                        }
+                        
+                        ?>
+                        
+                        <?php
+                        if(isset($_SESSION['memberId'])){
+                            echo "<p><a href='logout.php'>Logout</a></p>";
+                        }else{
+                            echo "<p><a href='signinsignup.php'>Login</a></p>";
+                            echo "<p><a href='signinsignup.php'>Register Now</a></p>";
+                        }
+                        ?>
                     </div>
                 </ul>
             </nav>      
